@@ -1,0 +1,27 @@
+<div fxLayout="column" fxFlex="100" fxFlex.md="100" fxFlex.xs="100" fxFlex.sm="100" class="margin-below">
+      <mat-toolbar class="transparent ">
+            <mat-toolbar-row class="mat-elevation-z2">
+                  <span class="logoTag" [routerLink]="['']">
+                        <img src="../../../../assets/img/logo.jpg" style="margin: 13px 0 0 5px;width:70px" />
+                  </span>
+                  <span fxLayout="row" fxFlex="100" fxFlexOffset="2" fxHide fxShow.gt-xs>
+                        <button mat-button [routerLink]="['']" [routerLinkActive]="['is-active']">Home</button>
+                        <button mat-button (click)="openPage(1)">Dashboard</button>
+                  </span>
+                  <span class="ic-spacer"></span>
+                  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu hq-drone" fxHide fxShow.lt-sm>
+                        <mat-icon>more_vert</mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="openPage(1)">
+                              <span>Dashboard</span>
+                        </button>
+                  </mat-menu>
+                  <button mat-icon-button aria-label="Search Here" (click)="searchToggle()">
+                        <mat-icon>search</mat-icon>
+                  </button>
+            </mat-toolbar-row>
+      </mat-toolbar>
+      <app-loader></app-loader>
+      <mat-divider class="opacity80"></mat-divider>
+</div>

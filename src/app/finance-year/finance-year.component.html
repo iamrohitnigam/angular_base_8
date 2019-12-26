@@ -1,0 +1,180 @@
+<app-header></app-header>
+<div class="top_content" fxFill>
+    <div fxFlex="90" fxFlexOffset="5">
+        <div fxLayout="column" fxLayoutGap="20px" class="add-subscription-subscriber-details">
+            <div fxLayoutAlign="center start" class="white padded-above">
+                <div class="heading">Financial Year</div>
+            </div>
+
+            <div fxLayoutAlign="center start" class="white padded-above" fxLayoutGap="20px">
+                <div fxFlex>
+                    <mat-form-field>
+                        <mat-label>Financial Year</mat-label>
+                        <mat-select [(ngModel)]="selectedFY">
+                            <mat-option value="2018-2019">2018-2019</mat-option>
+                            <mat-option value="2019-2020">2019-2020</mat-option>
+                            <mat-option value="2020-2021">2020-2021</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div fxFlex="25">
+                    <mat-card>
+                        <section fxLayoutAlign="center start">
+                            <mat-checkbox class="small-margin" [(ngModel)]="p5" fxFlex>P5</mat-checkbox>
+                            <mat-checkbox class="small-margin" [(ngModel)]="p4" fxFlex>P4.5</mat-checkbox>
+                            <mat-checkbox class="small-margin" [(ngModel)]="p3" fxFlex>P3</mat-checkbox>
+                            <mat-checkbox class="small-margin" [(ngModel)]="p0" fxFlex>P0</mat-checkbox>
+                        </section>
+                    </mat-card>
+                </div>
+                <div fxFlex="15">
+                    <mat-card>
+                        <section fxLayoutAlign="center start">
+                            <mat-checkbox class="small-margin" [(ngModel)]="core" fxFlex>Core</mat-checkbox>
+                            <mat-checkbox class="small-margin" [(ngModel)]="managed" fxFlex>Managed</mat-checkbox>
+                        </section>
+                    </mat-card>
+                </div>
+            </div>
+
+            <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="30px">
+                <div fxLayout.md="row" fxLayout.lg="row" fxLayout.xl="row" fxLayout.sm="column" fxLayout.xs="column"
+                    fxLayoutGap="30px" fxFlex="100">
+                    <div fxFlex.md="25" fxFlex.lg="25" fxFlex.xl="25" fxFlex.sm="100" fxFlex.xs="100">
+                        <mat-card class="example-card">
+                            <mat-card-header>
+                                <!-- <div mat-card-avatar class="header-image"></div> -->
+                                <mat-icon aria-hidden="false" aria-label="Q1" mat-card-avatar>ballot</mat-icon>
+                                <mat-card-title>Q1</mat-card-title>
+                                <mat-card-subtitle>APR-MAY-JUN</mat-card-subtitle>
+                            </mat-card-header>
+                            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                                alt="Photo of a Shiba Inu">
+                            <mat-card-content>
+                                <p>
+                                    $20000
+                                </p>
+                            </mat-card-content>
+                            <mat-card-actions>
+                                <button mat-stroked-button>
+                                    DETAIL
+                                </button>
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+                    <div fxFlex.md="25" fxFlex.lg="25" fxFlex.xl="25" fxFlex.sm="100" fxFlex.xs="100">
+                        <mat-card class="example-card">
+                            <mat-card-header>
+                                <!-- <div mat-card-avatar class="header-image"></div> -->
+                                <mat-icon aria-hidden="false" aria-label="Q1" mat-card-avatar>ballot</mat-icon>
+                                <mat-card-title>Q1</mat-card-title>
+                                <mat-card-subtitle>APR-MAY-JUN</mat-card-subtitle>
+                            </mat-card-header>
+                            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                                alt="Photo of a Shiba Inu">
+                            <mat-card-content>
+                                <p>
+                                    $20000
+                                </p>
+                            </mat-card-content>
+                            <mat-card-actions>
+                                <button mat-stroked-button>
+                                    DETAIL
+                                </button>
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+                    <div fxFlex.md="25" fxFlex.lg="25" fxFlex.xl="25" fxFlex.sm="100" fxFlex.xs="100">
+                        <mat-card class="example-card">
+                            <mat-card-header>
+                                <!-- <div mat-card-avatar class="header-image"></div> -->
+                                <mat-icon aria-hidden="false" aria-label="Q1" mat-card-avatar>ballot</mat-icon>
+                                <mat-card-title>Q1</mat-card-title>
+                                <mat-card-subtitle>APR-MAY-JUN</mat-card-subtitle>
+                            </mat-card-header>
+                            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                                alt="Photo of a Shiba Inu">
+                            <mat-card-content>
+                                <p>
+                                    $20000
+                                </p>
+                            </mat-card-content>
+                            <mat-card-actions>
+                                <button mat-stroked-button>
+                                    DETAIL
+                                </button>
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+                    <div fxFlex.md="25" fxFlex.lg="25" fxFlex.xl="25" fxFlex.sm="100" fxFlex.xs="100">
+                        <mat-card class="example-card">
+                            <mat-card-header>
+                                <!-- <div mat-card-avatar class="header-image"></div> -->
+                                <mat-icon aria-hidden="false" aria-label="Q1" mat-card-avatar>ballot</mat-icon>
+                                <mat-card-title>Q1</mat-card-title>
+                                <mat-card-subtitle>APR-MAY-JUN</mat-card-subtitle>
+                            </mat-card-header>
+                            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                                alt="Photo of a Shiba Inu">
+                            <mat-card-content>
+                                <p>
+                                    $20000
+                                </p>
+                            </mat-card-content>
+                            <mat-card-actions>
+                                <button mat-stroked-button>
+                                    DETAIL
+                                </button>
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+                </div>
+            </div>
+            <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="30px">
+                <div fxLayout.md="row" fxLayout.lg="row" fxLayout.xl="row" fxLayout.sm="column" fxLayout.xs="column"
+                    fxLayoutGap="30px" fxFlex="100">
+                    <div fxLayoutAlign="center start" class="white padded-above">
+                            <div class="heading">Financial Year</div>
+                        </div>
+            
+                        <div>
+                                <mat-accordion>
+                                        <mat-expansion-panel>
+                                          <mat-expansion-panel-header>
+                                            <mat-panel-title>
+                                              Personal data
+                                            </mat-panel-title>
+                                            <mat-panel-description>
+                                              Type your name and age
+                                            </mat-panel-description>
+                                          </mat-expansion-panel-header>
+                                      
+                                          <mat-form-field>
+                                            <input matInput placeholder="First name">
+                                          </mat-form-field>
+                                      
+                                          <mat-form-field>
+                                            <input matInput placeholder="Age">
+                                          </mat-form-field>
+                                        </mat-expansion-panel>
+                                        <mat-expansion-panel (opened)="panelOpenState = true"
+                                                             (closed)="panelOpenState = false">
+                                          <mat-expansion-panel-header>
+                                            <mat-panel-title>
+                                              Self aware panel
+                                            </mat-panel-title>
+                                            <mat-panel-description>
+                                              Currently I am {{panelOpenState ? 'open' : 'closed'}}
+                                            </mat-panel-description>
+                                          </mat-expansion-panel-header>
+                                          <p>I'm visible because I am open</p>
+                                        </mat-expansion-panel>
+                                      </mat-accordion>
+                                      
+                        </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

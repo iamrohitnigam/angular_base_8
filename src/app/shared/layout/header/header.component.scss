@@ -1,0 +1,46 @@
+.tool-icon {
+    padding: 0 14px;
+  }
+  .ic-spacer {
+    flex: 1 1 auto;
+  }
+  .ic-icon svg {
+    fill: white;
+  }
+  .logoTag{
+    cursor: pointer;
+  }
+  .search-div {
+    /** background: lightblue;
+    background-position: bottom 400% center;
+    background-attachment: fixed;
+    url("../../../../assets/image/back6.jpg") no-repeat */
+    background: rgb(255,80,0);
+    background: linear-gradient(52deg, rgba(255,80,0,0.804359243697479) 0%, rgba(255,216,198,1) 100%);
+  }
+  .banner-heading {
+    color: #ffffff;
+    font-size: 34px;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding-bottom: 15px;
+    font-weight: bold;
+    text-shadow: 3px 2px rgba(0, 0, 0, 0.87);
+  }
+  .banner-heading:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
+    bottom: 0;
+    width: 100px;
+    border-bottom: 2px solid ;
+  }
+  app-loader {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+  }
+  
