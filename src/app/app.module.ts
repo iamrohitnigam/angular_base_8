@@ -11,6 +11,7 @@ import { HeaderComponent } from './shared/layout/header/header.component';
 import { FooterComponent } from './shared/layout/footer/footer.component';
 import { LoaderComponent } from './shared/component/loader/loader.component';
 import { HomeComponent } from './home/home.component';
+import { ChartModule } from 'angular-highcharts';
 
 import {
   MatSelectModule,
@@ -36,9 +37,11 @@ import {
   MatTabsModule,
   MatListModule,
   MatProgressBarModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatPaginatorModule
 } from '@angular/material';
 import { FinanceYearComponent } from './finance-year/finance-year.component';
+import { SprocComponent } from './sproc/sproc.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +50,8 @@ import { FinanceYearComponent } from './finance-year/finance-year.component';
     FooterComponent,
     LoaderComponent,
     HomeComponent,
-    FinanceYearComponent
+    FinanceYearComponent,
+    SprocComponent
   ],
   imports: [
     BrowserModule,
@@ -80,9 +84,11 @@ import { FinanceYearComponent } from './finance-year/finance-year.component';
     MatListModule,
     MatProgressBarModule,
     MatSnackBarModule,
+    MatPaginatorModule,
     //mat mods
     FormsModule, 
-    ReactiveFormsModule 
+    ReactiveFormsModule ,
+    ChartModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

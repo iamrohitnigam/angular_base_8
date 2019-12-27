@@ -1,180 +1,406 @@
 <app-header></app-header>
 <div class="top_content" fxFill>
-    <div fxFlex="90" fxFlexOffset="5">
-        <div fxLayout="column" fxLayoutGap="20px" class="add-subscription-subscriber-details">
-            <div fxLayoutAlign="center start" class="white padded-above">
-                <div class="heading">Financial Year</div>
-            </div>
 
-            <div fxLayoutAlign="center start" class="white padded-above" fxLayoutGap="20px">
+    <div fxLayout="column" fxLayout.sm="column" fxLayout.xs="column" fxFlex="90" fxFlex.md="99" fxFlex.xs="99"
+        fxFlex.sm="99" fxFlexOffset="5" fxFlexOffset.md="1" fxFlexOffset.xs="1" fxFlexOffset.sm="1">
+        <div fxFlex>
+            <div fxLayout="column" fxLayoutGap="20px" class="add-subscription-subscriber-details">
+                <div fxLayoutAlign="center start" class="white padded-above">
+                    <div class="heading">Financial Year</div>
+                </div>
+
+                <div fxLayoutAlign="center start" class="white padded-above" fxLayoutGap="20px">
+                    <div fxFlex>
+                        <mat-form-field>
+                            <mat-label>Financial Year</mat-label>
+                            <mat-select [(ngModel)]="selectedFY">
+                                <mat-option value="2018-2019">2018-2019</mat-option>
+                                <mat-option value="2019-2020">2019-2020</mat-option>
+                                <mat-option value="2020-2021">2020-2021</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="25">
+                        <mat-card>
+                            <section fxLayoutAlign="center start">
+                                <mat-checkbox class="small-margin" [(ngModel)]="p5" fxFlex>P5</mat-checkbox>
+                                <mat-checkbox class="small-margin" [(ngModel)]="p4" fxFlex>P4.5</mat-checkbox>
+                                <mat-checkbox class="small-margin" [(ngModel)]="p3" fxFlex>P3</mat-checkbox>
+                                <mat-checkbox class="small-margin" [(ngModel)]="p0" fxFlex>P0</mat-checkbox>
+                            </section>
+                        </mat-card>
+                    </div>
+                    <div fxFlex="15">
+                        <mat-card>
+                            <section fxLayoutAlign="center start">
+                                <mat-checkbox class="small-margin" [(ngModel)]="core" fxFlex>Core</mat-checkbox>
+                                <mat-checkbox class="small-margin" [(ngModel)]="managed" fxFlex>Managed</mat-checkbox>
+                            </section>
+                        </mat-card>
+                    </div>
+                </div>
+
+                <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="30px">
+                    <div fxLayout.md="row" fxLayout.lg="row" fxLayout.xl="row" fxLayout.sm="column" fxLayout.xs="column"
+                        fxLayoutGap="30px" fxFlex="100">
+                        <div fxFlex.md="25" fxFlex.lg="25" fxFlex.xl="25" fxFlex.sm="100" fxFlex.xs="100">
+                            <mat-card class="example-card">
+                                <mat-card-header>
+                                    <!-- <div mat-card-avatar class="header-image"></div> -->
+                                    <mat-icon aria-hidden="false" aria-label="Q1" mat-card-avatar>ballot</mat-icon>
+                                    <mat-card-title>Q1</mat-card-title>
+                                    <mat-card-subtitle>APR-MAY-JUN</mat-card-subtitle>
+                                </mat-card-header>
+                                <img mat-card-image src="../../assets/img/chart.png" alt="Chart">
+
+                                <p>
+                                        FSE: 0.02
+                                        <br />
+                                        Mod: 1.12
+                                        <br />
+                                        PM : 0.02
+                                        <br />
+                                        SEC : 0.02
+                                        <br />
+
+                                    </p>
+                            </mat-card>
+                        </div>
+                        <div fxFlex.md="25" fxFlex.lg="25" fxFlex.xl="25" fxFlex.sm="100" fxFlex.xs="100">
+                            <mat-card class="example-card">
+                                <mat-card-header>
+                                    <!-- <div mat-card-avatar class="header-image"></div> -->
+                                    <mat-icon aria-hidden="false" aria-label="Q1" mat-card-avatar>ballot</mat-icon>
+                                    <mat-card-title>Q2</mat-card-title>
+                                    <mat-card-subtitle>APR-MAY-JUN</mat-card-subtitle>
+                                </mat-card-header>
+                                <img mat-card-image src="../../assets/img/chart.png" alt="Chart">
+                                <mat-card-content>
+                                    <p>
+                                        $20000
+                                    </p>
+                                </mat-card-content>
+                                <mat-card-actions>
+                                    <button mat-stroked-button>
+                                        DETAIL
+                                    </button>
+                                </mat-card-actions>
+                            </mat-card>
+                        </div>
+                        <div fxFlex.md="25" fxFlex.lg="25" fxFlex.xl="25" fxFlex.sm="100" fxFlex.xs="100">
+                            <mat-card class="example-card">
+                                <mat-card-header>
+                                    <!-- <div mat-card-avatar class="header-image"></div> -->
+                                    <mat-icon aria-hidden="false" aria-label="Q1" mat-card-avatar>ballot</mat-icon>
+                                    <mat-card-title>Q3</mat-card-title>
+                                    <mat-card-subtitle>APR-MAY-JUN</mat-card-subtitle>
+                                </mat-card-header>
+                                <img mat-card-image src="../../assets/img/chart.png" alt="Chart">
+                                <mat-card-content>
+                                    <p>
+                                        $20000
+                                    </p>
+                                </mat-card-content>
+                                <mat-card-actions>
+                                    <button mat-stroked-button>
+                                        DETAIL
+                                    </button>
+                                </mat-card-actions>
+                            </mat-card>
+                        </div>
+                        <div fxFlex.md="25" fxFlex.lg="25" fxFlex.xl="25" fxFlex.sm="100" fxFlex.xs="100">
+                            <mat-card class="example-card">
+                                <mat-card-header>
+                                    <!-- <div mat-card-avatar class="header-image"></div> -->
+                                    <mat-icon aria-hidden="false" aria-label="Q1" mat-card-avatar>ballot</mat-icon>
+                                    <mat-card-title>Q4</mat-card-title>
+                                    <mat-card-subtitle>APR-MAY-JUN</mat-card-subtitle>
+                                </mat-card-header>
+                                <img mat-card-image src="../../assets/img/chart.png" alt="Chart">
+                                <mat-card-content>
+                                    <p>
+                                        $20000
+                                    </p>
+                                </mat-card-content>
+                                <mat-card-actions>
+                                    <button mat-stroked-button>
+                                        DETAIL
+                                    </button>
+                                </mat-card-actions>
+                            </mat-card>
+                        </div>
+                        <div fxFlex.md="25" fxFlex.lg="25" fxFlex.xl="25" fxFlex.sm="100" fxFlex.xs="100">
+                            <mat-card class="example-card">
+                                <mat-card-header>
+                                    <!-- <div mat-card-avatar class="header-image"></div> -->
+                                    <mat-icon aria-hidden="false" aria-label="Q1" mat-card-avatar>ballot</mat-icon>
+                                    <mat-card-title>FY Total</mat-card-title>
+                                    <mat-card-subtitle>APR-MAY-JUN</mat-card-subtitle>
+                                </mat-card-header>
+                                <img mat-card-image src="../../assets/img/chart.png" alt="Chart">
+                                <mat-card-content>
+                                    <p>
+                                        $20000
+                                    </p>
+                                </mat-card-content>
+                                <mat-card-actions>
+                                    <button mat-stroked-button>
+                                        DETAIL
+                                    </button>
+                                </mat-card-actions>
+                            </mat-card>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div fxFlex="100" class="padding-above margin-below">
+
+            <div fxLayout.md="column" fxLayout.lg="column" fxLayout.xl="column" fxLayoutGap="30px" fxFlex="100">
+                <div fxLayoutAlign="center start" class="white padded-above margin-below">
+                    <div class="heading">Financial Year</div>
+                </div>
+
                 <div fxFlex>
-                    <mat-form-field>
-                        <mat-label>Financial Year</mat-label>
-                        <mat-select [(ngModel)]="selectedFY">
-                            <mat-option value="2018-2019">2018-2019</mat-option>
-                            <mat-option value="2019-2020">2019-2020</mat-option>
-                            <mat-option value="2020-2021">2020-2021</mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                </div>
-                <div fxFlex="25">
-                    <mat-card>
-                        <section fxLayoutAlign="center start">
-                            <mat-checkbox class="small-margin" [(ngModel)]="p5" fxFlex>P5</mat-checkbox>
-                            <mat-checkbox class="small-margin" [(ngModel)]="p4" fxFlex>P4.5</mat-checkbox>
-                            <mat-checkbox class="small-margin" [(ngModel)]="p3" fxFlex>P3</mat-checkbox>
-                            <mat-checkbox class="small-margin" [(ngModel)]="p0" fxFlex>P0</mat-checkbox>
-                        </section>
-                    </mat-card>
-                </div>
-                <div fxFlex="15">
-                    <mat-card>
-                        <section fxLayoutAlign="center start">
-                            <mat-checkbox class="small-margin" [(ngModel)]="core" fxFlex>Core</mat-checkbox>
-                            <mat-checkbox class="small-margin" [(ngModel)]="managed" fxFlex>Managed</mat-checkbox>
-                        </section>
-                    </mat-card>
-                </div>
-            </div>
-
-            <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="30px">
-                <div fxLayout.md="row" fxLayout.lg="row" fxLayout.xl="row" fxLayout.sm="column" fxLayout.xs="column"
-                    fxLayoutGap="30px" fxFlex="100">
-                    <div fxFlex.md="25" fxFlex.lg="25" fxFlex.xl="25" fxFlex.sm="100" fxFlex.xs="100">
-                        <mat-card class="example-card">
-                            <mat-card-header>
-                                <!-- <div mat-card-avatar class="header-image"></div> -->
-                                <mat-icon aria-hidden="false" aria-label="Q1" mat-card-avatar>ballot</mat-icon>
-                                <mat-card-title>Q1</mat-card-title>
-                                <mat-card-subtitle>APR-MAY-JUN</mat-card-subtitle>
-                            </mat-card-header>
-                            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-                                alt="Photo of a Shiba Inu">
-                            <mat-card-content>
-                                <p>
-                                    $20000
-                                </p>
-                            </mat-card-content>
-                            <mat-card-actions>
-                                <button mat-stroked-button>
-                                    DETAIL
-                                </button>
-                            </mat-card-actions>
-                        </mat-card>
-                    </div>
-                    <div fxFlex.md="25" fxFlex.lg="25" fxFlex.xl="25" fxFlex.sm="100" fxFlex.xs="100">
-                        <mat-card class="example-card">
-                            <mat-card-header>
-                                <!-- <div mat-card-avatar class="header-image"></div> -->
-                                <mat-icon aria-hidden="false" aria-label="Q1" mat-card-avatar>ballot</mat-icon>
-                                <mat-card-title>Q1</mat-card-title>
-                                <mat-card-subtitle>APR-MAY-JUN</mat-card-subtitle>
-                            </mat-card-header>
-                            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-                                alt="Photo of a Shiba Inu">
-                            <mat-card-content>
-                                <p>
-                                    $20000
-                                </p>
-                            </mat-card-content>
-                            <mat-card-actions>
-                                <button mat-stroked-button>
-                                    DETAIL
-                                </button>
-                            </mat-card-actions>
-                        </mat-card>
-                    </div>
-                    <div fxFlex.md="25" fxFlex.lg="25" fxFlex.xl="25" fxFlex.sm="100" fxFlex.xs="100">
-                        <mat-card class="example-card">
-                            <mat-card-header>
-                                <!-- <div mat-card-avatar class="header-image"></div> -->
-                                <mat-icon aria-hidden="false" aria-label="Q1" mat-card-avatar>ballot</mat-icon>
-                                <mat-card-title>Q1</mat-card-title>
-                                <mat-card-subtitle>APR-MAY-JUN</mat-card-subtitle>
-                            </mat-card-header>
-                            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-                                alt="Photo of a Shiba Inu">
-                            <mat-card-content>
-                                <p>
-                                    $20000
-                                </p>
-                            </mat-card-content>
-                            <mat-card-actions>
-                                <button mat-stroked-button>
-                                    DETAIL
-                                </button>
-                            </mat-card-actions>
-                        </mat-card>
-                    </div>
-                    <div fxFlex.md="25" fxFlex.lg="25" fxFlex.xl="25" fxFlex.sm="100" fxFlex.xs="100">
-                        <mat-card class="example-card">
-                            <mat-card-header>
-                                <!-- <div mat-card-avatar class="header-image"></div> -->
-                                <mat-icon aria-hidden="false" aria-label="Q1" mat-card-avatar>ballot</mat-icon>
-                                <mat-card-title>Q1</mat-card-title>
-                                <mat-card-subtitle>APR-MAY-JUN</mat-card-subtitle>
-                            </mat-card-header>
-                            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-                                alt="Photo of a Shiba Inu">
-                            <mat-card-content>
-                                <p>
-                                    $20000
-                                </p>
-                            </mat-card-content>
-                            <mat-card-actions>
-                                <button mat-stroked-button>
-                                    DETAIL
-                                </button>
-                            </mat-card-actions>
-                        </mat-card>
-                    </div>
-                </div>
-            </div>
-            <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="30px">
-                <div fxLayout.md="row" fxLayout.lg="row" fxLayout.xl="row" fxLayout.sm="column" fxLayout.xs="column"
-                    fxLayoutGap="30px" fxFlex="100">
-                    <div fxLayoutAlign="center start" class="white padded-above">
-                            <div class="heading">Financial Year</div>
-                        </div>
-            
-                        <div>
-                                <mat-accordion>
+                    <mat-accordion>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    IBG 1
+                                </mat-panel-title>
+                                <mat-panel-description>
+                                    P0: 4300
+                                </mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <mat-tab-group>
+                                <mat-tab label="IBU 1">
+                                    <mat-accordion>
                                         <mat-expansion-panel>
-                                          <mat-expansion-panel-header>
-                                            <mat-panel-title>
-                                              Personal data
-                                            </mat-panel-title>
-                                            <mat-panel-description>
-                                              Type your name and age
-                                            </mat-panel-description>
-                                          </mat-expansion-panel-header>
-                                      
-                                          <mat-form-field>
-                                            <input matInput placeholder="First name">
-                                          </mat-form-field>
-                                      
-                                          <mat-form-field>
-                                            <input matInput placeholder="Age">
-                                          </mat-form-field>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>
+                                                    DELIVERY MANAGER 1
+                                                </mat-panel-title>
+                                                <mat-panel-description>
+                                                    PO: Critical
+                                                </mat-panel-description>
+                                            </mat-expansion-panel-header>
+
+                                            <div fxLayout.md="row" fxLayout.lg="row" fxLayout.xl="row" fxLayout.sm="column" fxLayout.xs="column"
+                        fxLayoutGap="30px" fxFlex="100">
+                                                <mat-card class="example-card">
+                                                    <mat-card-header>
+                                                        <!-- <div mat-card-avatar class="header-image"></div> -->
+                                                        <mat-icon aria-hidden="false" aria-label="Q1" mat-card-avatar>
+                                                            ballot</mat-icon>
+                                                        <mat-card-title>Project 1</mat-card-title>
+                                                        <mat-card-subtitle>Proj Name</mat-card-subtitle>
+                                                    </mat-card-header>
+                                                    <mat-card-content>
+                                                        <p>
+                                                            Applictaion 1: 0.02
+                                                            <br />
+                                                            Applictaion 2: 1.12
+                                                            <br />
+                                                            P0 1: 0.02
+                                                            <br />
+
+                                                        </p>
+                                                    </mat-card-content>
+                                                    <mat-card-actions>
+                                                        <button mat-stroked-button>
+                                                            DETAIL
+                                                        </button>
+                                                    </mat-card-actions>
+                                                </mat-card>
+                                                <mat-card class="example-card">
+                                                    <mat-card-header>
+                                                        <!-- <div mat-card-avatar class="header-image"></div> -->
+                                                        <mat-icon aria-hidden="false" aria-label="Q1" mat-card-avatar>
+                                                            ballot</mat-icon>
+                                                        <mat-card-title>Project 2</mat-card-title>
+                                                        <mat-card-subtitle>Proj Name</mat-card-subtitle>
+                                                    </mat-card-header>
+                                                    <mat-card-content>
+                                                        <p>
+                                                            Applictaion 1: 0.02
+                                                            <br />
+                                                            Applictaion 2: 1.12
+                                                            <br />
+                                                            P0 1: 0.02
+                                                            <br />
+
+                                                        </p>
+                                                    </mat-card-content>
+                                                    <mat-card-actions>
+                                                        <button mat-stroked-button>
+                                                            DETAIL
+                                                        </button>
+                                                    </mat-card-actions>
+                                                </mat-card>
+                                                <mat-card class="example-card">
+                                                    <mat-card-header>
+                                                        <!-- <div mat-card-avatar class="header-image"></div> -->
+                                                        <mat-icon aria-hidden="false" aria-label="Q1" mat-card-avatar>
+                                                            ballot</mat-icon>
+                                                        <mat-card-title>Project 3</mat-card-title>
+                                                        <mat-card-subtitle>Proj Name</mat-card-subtitle>
+                                                    </mat-card-header>
+                                                    <mat-card-content>
+                                                        <p>
+                                                            Applictaion 1: 0.02
+                                                            <br />
+                                                            Applictaion 2: 1.12
+                                                            <br />
+                                                            P0 1: 0.02
+                                                            <br />
+
+                                                        </p>
+                                                    </mat-card-content>
+                                                    <mat-card-actions>
+                                                        <button mat-stroked-button>
+                                                            DETAIL
+                                                        </button>
+                                                    </mat-card-actions>
+                                                </mat-card>
+                                            </div>
                                         </mat-expansion-panel>
-                                        <mat-expansion-panel (opened)="panelOpenState = true"
-                                                             (closed)="panelOpenState = false">
-                                          <mat-expansion-panel-header>
-                                            <mat-panel-title>
-                                              Self aware panel
-                                            </mat-panel-title>
-                                            <mat-panel-description>
-                                              Currently I am {{panelOpenState ? 'open' : 'closed'}}
-                                            </mat-panel-description>
-                                          </mat-expansion-panel-header>
-                                          <p>I'm visible because I am open</p>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>
+                                                    DELIVERY MANAGER 2
+                                                </mat-panel-title>
+                                                <mat-panel-description>
+                                                    P0
+                                                </mat-panel-description>
+                                            </mat-expansion-panel-header>
+                                            
                                         </mat-expansion-panel>
-                                      </mat-accordion>
-                                      
-                        </div>
+                                    </mat-accordion>
+
+                                </mat-tab>
+                                <mat-tab label="IBU 3">  <mat-accordion>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>
+                                                    DELIVERY MANAGER 1
+                                                </mat-panel-title>
+                                                <mat-panel-description>
+                                                    PO: Critical
+                                                </mat-panel-description>
+                                            </mat-expansion-panel-header>
+
+                                            <div fxLayout.md="row" fxLayout.lg="row" fxLayout.xl="row" fxLayout.sm="column" fxLayout.xs="column"
+                        fxLayoutGap="30px" fxFlex="100">
+                                                <mat-card class="example-card">
+                                                    <mat-card-header>
+                                                        <!-- <div mat-card-avatar class="header-image"></div> -->
+                                                        <mat-icon aria-hidden="false" aria-label="Q1" mat-card-avatar>
+                                                            ballot</mat-icon>
+                                                        <mat-card-title>Project 1</mat-card-title>
+                                                        <mat-card-subtitle>Proj Name</mat-card-subtitle>
+                                                    </mat-card-header>
+                                                    <mat-card-content>
+                                                        <p>
+                                                            Applictaion 1: 0.02
+                                                            <br />
+                                                            Applictaion 2: 1.12
+                                                            <br />
+                                                            P0 1: 0.02
+                                                            <br />
+
+                                                        </p>
+                                                    </mat-card-content>
+                                                    <mat-card-actions>
+                                                        <button mat-stroked-button>
+                                                            DETAIL
+                                                        </button>
+                                                    </mat-card-actions>
+                                                </mat-card>
+                                                <mat-card class="example-card">
+                                                    <mat-card-header>
+                                                        <!-- <div mat-card-avatar class="header-image"></div> -->
+                                                        <mat-icon aria-hidden="false" aria-label="Q1" mat-card-avatar>
+                                                            ballot</mat-icon>
+                                                        <mat-card-title>Project 2</mat-card-title>
+                                                        <mat-card-subtitle>Proj Name</mat-card-subtitle>
+                                                    </mat-card-header>
+                                                    <mat-card-content>
+                                                        <p>
+                                                            Applictaion 1: 0.02
+                                                            <br />
+                                                            Applictaion 2: 1.12
+                                                            <br />
+                                                            P0 1: 0.02
+                                                            <br />
+
+                                                        </p>
+                                                    </mat-card-content>
+                                                    <mat-card-actions>
+                                                        <button mat-stroked-button>
+                                                            DETAIL
+                                                        </button>
+                                                    </mat-card-actions>
+                                                </mat-card>
+                                                <mat-card class="example-card">
+                                                    <mat-card-header>
+                                                        <!-- <div mat-card-avatar class="header-image"></div> -->
+                                                        <mat-icon aria-hidden="false" aria-label="Q1" mat-card-avatar>
+                                                            ballot</mat-icon>
+                                                        <mat-card-title>Project 3</mat-card-title>
+                                                        <mat-card-subtitle>Proj Name</mat-card-subtitle>
+                                                    </mat-card-header>
+                                                    <mat-card-content>
+                                                        <p>
+                                                            Applictaion 1: 0.02
+                                                            <br />
+                                                            Applictaion 2: 1.12
+                                                            <br />
+                                                            P0 1: 0.02
+                                                            <br />
+
+                                                        </p>
+                                                    </mat-card-content>
+                                                    <mat-card-actions>
+                                                        <button mat-stroked-button>
+                                                            DETAIL
+                                                        </button>
+                                                    </mat-card-actions>
+                                                </mat-card>
+                                            </div>
+                                        </mat-expansion-panel>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>
+                                                    DELIVERY MANAGER 2
+                                                </mat-panel-title>
+                                                <mat-panel-description>
+                                                    P0
+                                                </mat-panel-description>
+                                            </mat-expansion-panel-header>
+                                            <img mat-card-image src="../../assets/img/chartbar2.png" alt="Chart">
+                                        </mat-expansion-panel>
+                                    </mat-accordion>
+ </mat-tab>
+                                <mat-tab label="IBU 4"> Content 3 </mat-tab>
+                                <mat-tab label="IBU 5"> Content 3 </mat-tab>
+                            </mat-tab-group>
+                        </mat-expansion-panel>
+
+                    </mat-accordion>
 
                 </div>
+
             </div>
+        </div>
+        <div fxFlex="100" class="padding-above">
+        </div>
+        <div fxFlex="100" class="padding-above">
+        </div>
+        <div fxFlex="100" class="padding-above">
+        </div>
+        <div fxFlex="100" class="padding-above">
         </div>
     </div>
 </div>
