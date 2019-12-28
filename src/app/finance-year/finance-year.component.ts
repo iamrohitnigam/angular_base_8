@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RevenueService } from "./../shared/service/revenue.service";
-import { Chart } from 'highcharts';
+import { Chart, inArray } from 'highcharts';
 import { Program, ActivityDesc, FundingStatus, CoreMS } from "./../shared/interface/finance-data";
 import { OperationalConstant } from "./../shared/constant/operational-constant";
 
@@ -36,6 +36,30 @@ export class FinanceYearComponent implements OnInit {
 
   createRevenueMaster() {
 
+    let arr2 = {
+      BETEBSProjHours: 0,
+      BETEBSProjAmount: 0,
+      AEOPEBSProjHours: 0,
+      AEOPEBSProjAmount: 0,
+    };
+
+    let ad = {
+      MOD: arr2,
+      PMGT: arr2,
+      FS: arr2,
+      SEC: arr2,
+    }
+
+    let fs = {
+      P3: ad,
+      P45: ad,
+      P5: ad
+    };
+
+    let cms = {
+      Core: fs,
+      MS: fs
+    };
     this.revenue.ibgrevenueInfo.forEach(ibg => {
       if (this.revenueMaster[ibg.IBG] === undefined) {
         this.revenueMaster[ibg.IBG] = [];
@@ -50,64 +74,49 @@ export class FinanceYearComponent implements OnInit {
           }
           dm.Projects.forEach(proj => {
             if (this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID] === undefined) {
+
               this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID] = [];
 
-              let arr2 = {
-                BETEBSProjHours: 0,
-                BETEBSProjAmount: 0,
-                AEOPEBSProjHours: 0,
-                AEOPEBSProjAmount: 0,
-              };
 
-              let ad = {
-                MOD: arr2,
-                PMGT: arr2,
-                FS: arr2,
-                SEC: arr2,
-              }
-              // ad[ActivityDesc.MOD] = arr2;
-              // ad[ActivityDesc.PMGT] = arr2;
-              // ad[ActivityDesc.fullStack] = arr2;
-              // ad[ActivityDesc.security] = arr2;
 
-              let fs = {
-                P3: ad,
-                P45: ad,
-                P5: ad
-              };
-              
+              // let month = {
+              //   "Jan": cms,
+              //   "Feb": cms,
+              //   "Mar": cms,
+              //   "Apr": cms,
+              //   "May": cms,
+              //   "Jun": cms,
+              //   "Jul": cms,
+              //   "Aug": cms,
+              //   "Sep": cms,
+              //   "Oct": cms,
+              //   "Nov": cms,
+              //   "Dec": cms,
+              // };
 
-              let cms = {
-                Core: fs,
-                MS: fs
-              };
-
-              let month = {
-                "Jan": cms,
-                "Feb": cms,
-                "Mar": cms,
-                "Apr": cms,
-                "May": cms,
-                "Jun": cms,
-                "Jul": cms,
-                "Aug": cms,
-                "Sep": cms,
-                "Oct": cms,
-                "Nov": cms,
-                "Dec": cms,
-              };
-
-              this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID]["2019"] = JSON.parse(JSON.stringify(month));
-              this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID]["2020"] = JSON.parse(JSON.stringify(month));
-              this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID]["2021"] = JSON.parse(JSON.stringify(month));
-
+              // this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID]["2019"] = JSON.parse(JSON.stringify(month));
+              // this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID]["2020"] = JSON.parse(JSON.stringify(month));
+              // this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID]["2021"] = JSON.parse(JSON.stringify(month));
             }
+
+            if (inArray(proj.CY, this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID]) < 0) {
+              this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID][proj.CY] = [];
+              // console.log(this.revenueMaster)
+            }
+
+            // console.log(inArray(proj.CY, this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID]))
+            if (inArray(proj.MonthName, this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID][proj.CY]) < 0) {
+              this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID][proj.CY][proj.MonthName] = JSON.parse(JSON.stringify(cms));
+              // console.log(this.revenueMaster)
+            }
+
+
             // console.log(proj)
             // console.log(this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID][proj.CY][proj.MonthName])
-       
+
 
             // let currCore = this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID][proj.CY][proj.MonthName].Core.P45["FS"];
-            // console.log( currCore)
+            // console.log(currCore)
 
             this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID][proj.CY][proj.MonthName][proj.CoreMS][proj.FundingStatus][proj.ActivityDesc]["BETEBSProjHours"] += proj.BETEBSProjHours;
             this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID][proj.CY][proj.MonthName][proj.CoreMS][proj.FundingStatus][proj.ActivityDesc]["BETEBSProjAmount"] += proj.BETEBSProjAmount;
