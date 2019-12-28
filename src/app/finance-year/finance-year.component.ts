@@ -51,38 +51,63 @@ export class FinanceYearComponent implements OnInit {
           dm.Projects.forEach(proj => {
             if (this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID] === undefined) {
               this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID] = [];
-              let arr2 = [];
-              arr2["BETEBSProjHours"] = 0;
-              arr2["BETEBSProjAmount"] = 0;
-              arr2["AEOPEBSProjHours"] = 0;
-              arr2["AEOPEBSProjAmount"] = 0;
 
-              let ad = [];
-              ad[ActivityDesc.MOD] = arr2;
-              ad[ActivityDesc.PMGT] = arr2;
-              ad[ActivityDesc.fullStack] = arr2;
-              ad[ActivityDesc.security] = arr2;
+              let arr2 = {
+                BETEBSProjHours: 0,
+                BETEBSProjAmount: 0,
+                AEOPEBSProjHours: 0,
+                AEOPEBSProjAmount: 0,
+              };
 
-              let fs = [];
-              fs[FundingStatus.p3] = ad;
-              fs[FundingStatus.p45] = ad;
-              fs[FundingStatus.p5] = ad;
+              let ad = {
+                MOD: arr2,
+                PMGT: arr2,
+                FS: arr2,
+                SEC: arr2,
+              }
+              // ad[ActivityDesc.MOD] = arr2;
+              // ad[ActivityDesc.PMGT] = arr2;
+              // ad[ActivityDesc.fullStack] = arr2;
+              // ad[ActivityDesc.security] = arr2;
 
-              let cms = [];
-              cms[CoreMS.core] = fs;
-              cms[CoreMS.managed] = fs;
+              let fs = {
+                P3: ad,
+                P45: ad,
+                P5: ad
+              };
+              
 
-              let month = [];
-              OperationalConstant.months.forEach(mth => {
-                month[mth.slug] = cms;
-              })
+              let cms = {
+                Core: fs,
+                MS: fs
+              };
 
-              this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID]["2019"] = month;
-              this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID]["2020"] = month;
-              this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID]["2021"] = month;
+              let month = {
+                "Jan": cms,
+                "Feb": cms,
+                "Mar": cms,
+                "Apr": cms,
+                "May": cms,
+                "Jun": cms,
+                "Jul": cms,
+                "Aug": cms,
+                "Sep": cms,
+                "Oct": cms,
+                "Nov": cms,
+                "Dec": cms,
+              };
+
+              this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID]["2019"] = JSON.parse(JSON.stringify(month));
+              this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID]["2020"] = JSON.parse(JSON.stringify(month));
+              this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID]["2021"] = JSON.parse(JSON.stringify(month));
 
             }
-            console.log(proj)
+            // console.log(proj)
+            // console.log(this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID][proj.CY][proj.MonthName])
+       
+
+            // let currCore = this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID][proj.CY][proj.MonthName].Core.P45["FS"];
+            // console.log( currCore)
 
             this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID][proj.CY][proj.MonthName][proj.CoreMS][proj.FundingStatus][proj.ActivityDesc]["BETEBSProjHours"] += proj.BETEBSProjHours;
             this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID][proj.CY][proj.MonthName][proj.CoreMS][proj.FundingStatus][proj.ActivityDesc]["BETEBSProjAmount"] += proj.BETEBSProjAmount;
@@ -92,6 +117,7 @@ export class FinanceYearComponent implements OnInit {
         });
       });
     });
+    console.log(this.revenueMaster)
   }
 
 
