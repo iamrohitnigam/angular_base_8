@@ -59,7 +59,7 @@ export class FinanceYearComponent implements OnInit {
   public barChartTData: MultiDataSet = [[0, 0, 0, 0]];
 
   calYear: boolean = false;
-  currYear: string = "2019";
+  currYear: string = "2020";
 
   calYearDisp = [
     {
@@ -172,7 +172,7 @@ export class FinanceYearComponent implements OnInit {
 
     // console.log(x)
     // console.log(this.revenueMaster)
-    // console.log(this.revenueMaster)
+    console.log(this.revenueMaster)
 
     for (let key in this.revenueMaster) {
       let ibuArr = this.revenueMaster[key];
@@ -185,15 +185,16 @@ export class FinanceYearComponent implements OnInit {
           // console.log(projA)
           for (let keyPname in projA) {
             let partProj = projA[keyPname];
-            let mdet = this.calculateProjectSum(partProj);
             if (partProj[this.currYear] !== undefined) {
+              console.log((partProj))
+              let mdet = this.calculateProjectSum(partProj);
               partProj[this.currYear]["Q"] = mdet
             }
-            // console.log((partProj))
           }
         }
       }
     }
+    console.log(this.revenueMaster)
 
     let t = this.calculateQuaterRevenue("q1");
     this.doughnutChartQ1Data = [[t.MOD, t.PMGT, t.FS, t.SEC]];
@@ -295,6 +296,8 @@ export class FinanceYearComponent implements OnInit {
         }
       })
     }
+
+    // console.log(monthDoc)
     // if (this.calYear === true) {
     quaters.q1 = {
       "Jan": monthDoc["Jan"],
@@ -370,13 +373,13 @@ export class FinanceYearComponent implements OnInit {
     monthsArr.forEach(mt => {
 
       if (Object.keys(monthDoc[mt]).length > 0) {
-        ret.MOD = monthDoc[mt]["core"]["tot"]["MOD"] + monthDoc[mt]["ms"]["tot"]["MOD"];
-        ret.PMGT = monthDoc[mt]["core"]["tot"]["PMGT"] + monthDoc[mt]["ms"]["tot"]["PMGT"];
-        ret.FS = monthDoc[mt]["core"]["tot"]["FS"] + monthDoc[mt]["ms"]["tot"]["FS"];
-        ret.SEC = monthDoc[mt]["core"]["tot"]["SEC"] + monthDoc[mt]["ms"]["tot"]["SEC"];
-        ret.p3 = monthDoc[mt]["core"]["tot"]["p3"] + monthDoc[mt]["ms"]["tot"]["p3"];
-        ret.p45 = monthDoc[mt]["core"]["tot"]["p45"] + monthDoc[mt]["ms"]["tot"]["p45"];
-        ret.p5 = monthDoc[mt]["core"]["tot"]["p5"] + monthDoc[mt]["ms"]["tot"]["p5"];
+        ret.MOD += monthDoc[mt]["core"]["tot"]["MOD"] + monthDoc[mt]["ms"]["tot"]["MOD"];
+        ret.PMGT += monthDoc[mt]["core"]["tot"]["PMGT"] + monthDoc[mt]["ms"]["tot"]["PMGT"];
+        ret.FS += monthDoc[mt]["core"]["tot"]["FS"] + monthDoc[mt]["ms"]["tot"]["FS"];
+        ret.SEC += monthDoc[mt]["core"]["tot"]["SEC"] + monthDoc[mt]["ms"]["tot"]["SEC"];
+        ret.p3 += monthDoc[mt]["core"]["tot"]["p3"] + monthDoc[mt]["ms"]["tot"]["p3"];
+        ret.p45 += monthDoc[mt]["core"]["tot"]["p45"] + monthDoc[mt]["ms"]["tot"]["p45"];
+        ret.p5 += monthDoc[mt]["core"]["tot"]["p5"] + monthDoc[mt]["ms"]["tot"]["p5"];
       }
     });
 
@@ -486,30 +489,7 @@ export class FinanceYearComponent implements OnInit {
 
   createRevenueMaster() {
 
-    let arr2 = {
-      BETEBSProjHours: 0,
-      BETEBSProjAmount: 0,
-      AEOPEBSProjHours: 0,
-      AEOPEBSProjAmount: 0,
-    };
-
-    let ad = {
-      MOD: arr2,
-      PMGT: arr2,
-      FS: arr2,
-      SEC: arr2,
-    }
-
-    let fs = {
-      P3: ad,
-      P45: ad,
-      P5: ad
-    };
-
-    let cms = {
-      Core: fs,
-      MS: fs
-    };
+   
 
     this.revenue.ibgrevenueInfo.forEach(ibg => {
       if (this.revenueMaster[ibg.IBG] === undefined) {
@@ -551,14 +531,43 @@ export class FinanceYearComponent implements OnInit {
               // this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID]["2021"] = JSON.parse(JSON.stringify(month));
             }
 
-            if (inArray(proj.CY, this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID]) < 0) {
+            if (this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID][proj.CY] === undefined) {
               this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID][proj.CY] = [];
               // console.log(this.revenueMaster)
             }
 
-            // console.log(inArray(proj.CY, this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID]))
-            if (inArray(proj.MonthName, this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID][proj.CY]) < 0) {
+            // console.log(this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID])
+            if (this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID][proj.CY][proj.MonthName] === undefined) {
+              let arr2 = {
+                BETEBSProjHours: 0,
+                BETEBSProjAmount: 0,
+                AEOPEBSProjHours: 0,
+                AEOPEBSProjAmount: 0,
+              };
+          
+              let ad = {
+                MOD: arr2,
+                PMGT: arr2,
+                FS: arr2,
+                SEC: arr2,
+              }
+          
+              let fs = {
+                P3: ad,
+                P45: ad,
+                P5: ad
+              };
+          
+              let cms = {
+                Core: fs,
+                MS: fs
+              };
+
+              // let mth = {[proj.MonthName] : cms}
+              // debugger
+              // console.log(this.revenueMaster)
               this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID][proj.CY][proj.MonthName] = JSON.parse(JSON.stringify(cms));
+              // this.revenueMaster[ibg.IBG][ibu.IBU][dm.DeliveryManager][proj.ProjectID][proj.CY][proj.MonthName] = JSON.parse(JSON.stringify(cms));
               // console.log(this.revenueMaster)
             }
 

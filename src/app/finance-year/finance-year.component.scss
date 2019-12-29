@@ -1,8 +1,12 @@
-.small-margin{
-    margin: 0 10px;
+.small-margin {
+  margin: 0 10px;
 }
 
 .header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-  }
+  background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
+  background-size: cover;
+}
+
+::ng-deep .mat-expansion-panel-body {
+    padding: 0;
+}

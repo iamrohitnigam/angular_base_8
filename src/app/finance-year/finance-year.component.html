@@ -51,8 +51,8 @@
 
                 <div fxLayout="column" fxLayout.lt-md="column" fxLayoutGap="30px">
                     <div fxLayout.md="row" fxLayout.lg="row" fxLayout.xl="row" fxLayout.sm="column" fxLayout.xs="column"
-                        fxLayoutGap="30px" fxFlex="100">
-                        <div fxFlex.md="33" fxFlex.lg="33" fxFlex.xl="33" fxFlex.sm="100" fxFlex.xs="100">
+                        fxLayoutGap="20px" fxFlex="100">
+                        <div fxFlex.md="32" fxFlex.lg="32" fxFlex.xl="32" fxFlex.sm="100" fxFlex.xs="100">
                             <mat-card class="example-card">
                                 <mat-card-header>
                                     <!-- <div mat-card-avatar class="header-image"></div> -->
@@ -70,7 +70,7 @@
                                 </canvas>
                             </mat-card>
                         </div>
-                        <div fxFlex.md="33" fxFlex.lg="33" fxFlex.xl="33" fxFlex.sm="100" fxFlex.xs="100">
+                        <div fxFlex.md="32" fxFlex.lg="32" fxFlex.xl="32" fxFlex.sm="100" fxFlex.xs="100">
                             <mat-card class="example-card">
                                 <mat-card-header>
                                     <!-- <div mat-card-avatar class="header-image"></div> -->
@@ -90,18 +90,18 @@
 
                             </mat-card>
                         </div>
-                        <div fxFlex.md="33" fxFlex.lg="33" fxFlex.xl="33" fxFlex.sm="100" fxFlex.xs="100">
+                        <div fxFlex.md="32" fxFlex.lg="32" fxFlex.xl="32" fxFlex.sm="100" fxFlex.xs="100">
                             <mat-card class="example-card">
                                 <mat-card-header>
                                     <!-- <div mat-card-avatar class="header-image"></div> -->
                                     <mat-icon aria-hidden="false" aria-label="Q1" mat-card-avatar>ballot</mat-icon>
-                                    <mat-card-title>Q3</mat-card-title>
-                                    <mat-card-subtitle>{{getMonths("Q3")}}</mat-card-subtitle>
+                                    <mat-card-title>Q2</mat-card-title>
+                                    <mat-card-subtitle>{{getMonths("Q2")}}</mat-card-subtitle>
                                 </mat-card-header>
-                                <canvas baseChart [data]="doughnutChartQ3Data" [labels]="doughnutChartLabels"
+                                <canvas baseChart [data]="doughnutChartQ2Data" [labels]="doughnutChartLabels"
                                     [chartType]="doughnutChartType">
                                 </canvas>
-                                <canvas baseChart [data]="barChartQ3Data" [labels]="barChartLabels"
+                                <canvas baseChart [data]="barChartQ2Data" [labels]="barChartLabels"
                                     [chartType]="barChartType">
                                 </canvas>
                                 <mat-card-content>
@@ -110,6 +110,7 @@
 
                             </mat-card>
                         </div>
+
 
                     </div>
                     <div fxFlex fxLayoutAlign="center start" fxLayoutGap="20px">
@@ -173,7 +174,7 @@
                                 <mat-panel-title>
                                     IBG - {{ibg.key}}
                                 </mat-panel-title>
-                                <mat-panel-description>
+                                <mat-panel-description fxLayoutAlign="end center">
                                     P0: 4300
                                 </mat-panel-description>
                             </mat-expansion-panel-header>
@@ -183,7 +184,7 @@
                                         <mat-panel-title>
                                             IBU - {{ibu.key}}
                                         </mat-panel-title>
-                                        <mat-panel-description>
+                                        <mat-panel-description fxLayoutAlign="end center">
                                             P0: 4300
                                         </mat-panel-description>
                                     </mat-expansion-panel-header>
@@ -194,7 +195,7 @@
                                                 <mat-panel-title>
                                                     Delivery Manager - {{dm.key}}
                                                 </mat-panel-title>
-                                                <mat-panel-description>
+                                                <mat-panel-description fxLayoutAlign="end center">
                                                     P0: 4300
                                                 </mat-panel-description>
                                             </mat-expansion-panel-header>
@@ -205,7 +206,7 @@
                                                         <mat-panel-title>
                                                             Project - {{proj.key}}
                                                         </mat-panel-title>
-                                                        <mat-panel-description>
+                                                        <mat-panel-description fxLayoutAlign="end center">
                                                             P0: 4300
                                                         </mat-panel-description>
                                                     </mat-expansion-panel-header>
