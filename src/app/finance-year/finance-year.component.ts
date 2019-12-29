@@ -1,15 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { RevenueService } from "./../shared/service/revenue.service";
-import { Chart, inArray } from 'highcharts';
-import { Program, ActivityDesc, FundingStatus, CoreMS } from "./../shared/interface/finance-data";
-import { OperationalConstant } from "./../shared/constant/operational-constant";
-import { MatSlideToggleChange, MatSelectChange, MatCheckboxChange, getMatTooltipInvalidPositionError } from '@angular/material';
-import 'chartjs-plugin-labels';
-
-import * as Highcharts from 'highcharts';
+import { Program } from "./../shared/interface/finance-data";
+import { MatSlideToggleChange, MatSelectChange, MatCheckboxChange } from '@angular/material';
 
 
-import { ChartType, ChartOptions } from 'chart.js';
+import { ChartType } from 'chart.js';
 import { MultiDataSet, Label } from 'ng2-charts';
 
 
