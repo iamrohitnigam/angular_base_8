@@ -27,113 +27,113 @@
                     <div fxFlex="25">
                         <mat-card>
                             <section fxLayoutAlign="center start">
-                                <mat-checkbox class="small-margin" [(ngModel)]="p5" fxFlex>P5</mat-checkbox>
-                                <mat-checkbox class="small-margin" [(ngModel)]="p4" fxFlex>P4.5</mat-checkbox>
-                                <mat-checkbox class="small-margin" [(ngModel)]="p3" fxFlex>P3</mat-checkbox>
-                                <mat-checkbox class="small-margin" [(ngModel)]="p0" fxFlex>P0</mat-checkbox>
+                                <mat-checkbox class="small-margin" (change)="changeOption($event)" name="p5" fxFlex
+                                    [checked]="true">P5</mat-checkbox>
+                                <mat-checkbox class="small-margin" (change)="changeOption($event)" name="p45" fxFlex
+                                    [checked]="true">P4.5</mat-checkbox>
+                                <mat-checkbox class="small-margin" (change)="changeOption($event)" name="p3" fxFlex
+                                    [checked]="true">P3</mat-checkbox>
+                                <!-- <mat-checkbox class="small-margin" [(ngModel)]="p0" fxFlex>P0</mat-checkbox> -->
                             </section>
                         </mat-card>
                     </div>
                     <div fxFlex="15">
                         <mat-card>
                             <section fxLayoutAlign="center start">
-                                <mat-checkbox class="small-margin" [(ngModel)]="core" fxFlex>Core</mat-checkbox>
-                                <mat-checkbox class="small-margin" [(ngModel)]="managed" fxFlex>Managed</mat-checkbox>
+                                <mat-checkbox class="small-margin" (change)="changeOption($event)" name="core" fxFlex
+                                    [checked]="true">Core</mat-checkbox>
+                                <mat-checkbox class="small-margin" (change)="changeOption($event)" name="managed" fxFlex
+                                    [checked]="true">Managed</mat-checkbox>
                             </section>
                         </mat-card>
                     </div>
                 </div>
 
-                <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="30px">
+                <div fxLayout="column" fxLayout.lt-md="column" fxLayoutGap="30px">
                     <div fxLayout.md="row" fxLayout.lg="row" fxLayout.xl="row" fxLayout.sm="column" fxLayout.xs="column"
                         fxLayoutGap="30px" fxFlex="100">
-                        <div fxFlex.md="25" fxFlex.lg="25" fxFlex.xl="25" fxFlex.sm="100" fxFlex.xs="100">
+                        <div fxFlex.md="33" fxFlex.lg="33" fxFlex.xl="33" fxFlex.sm="100" fxFlex.xs="100">
                             <mat-card class="example-card">
                                 <mat-card-header>
                                     <!-- <div mat-card-avatar class="header-image"></div> -->
                                     <mat-icon aria-hidden="false" aria-label="Q1" mat-card-avatar>ballot</mat-icon>
                                     <mat-card-title>Q1</mat-card-title>
-                                    <mat-card-subtitle>APR-MAY-JUN</mat-card-subtitle>
+                                    <mat-card-subtitle>
+                                        {{getMonths("Q1")}}
+                                    </mat-card-subtitle>
                                 </mat-card-header>
-                                <img mat-card-image src="../../assets/img/chart.png" alt="Chart">
-
-                                <p>
-                                    FSE: 0.02
-                                    <br />
-                                    Mod: 1.12
-                                    <br />
-                                    PM : 0.02
-                                    <br />
-                                    SEC : 0.02
-                                    <br />
-
-                                </p>
+                                <canvas baseChart [data]="doughnutChartQ1Data" [labels]="doughnutChartLabels"
+                                    [chartType]="doughnutChartType">
+                                </canvas>
+                                <canvas baseChart [data]="barChartQ1Data" [labels]="barChartLabels"
+                                    [chartType]="barChartType">
+                                </canvas>
                             </mat-card>
                         </div>
-                        <div fxFlex.md="25" fxFlex.lg="25" fxFlex.xl="25" fxFlex.sm="100" fxFlex.xs="100">
+                        <div fxFlex.md="33" fxFlex.lg="33" fxFlex.xl="33" fxFlex.sm="100" fxFlex.xs="100">
                             <mat-card class="example-card">
                                 <mat-card-header>
                                     <!-- <div mat-card-avatar class="header-image"></div> -->
                                     <mat-icon aria-hidden="false" aria-label="Q1" mat-card-avatar>ballot</mat-icon>
                                     <mat-card-title>Q2</mat-card-title>
-                                    <mat-card-subtitle>APR-MAY-JUN</mat-card-subtitle>
+                                    <mat-card-subtitle>{{getMonths("Q2")}}</mat-card-subtitle>
                                 </mat-card-header>
-                                <img mat-card-image src="../../assets/img/chart.png" alt="Chart">
+                                <canvas baseChart [data]="doughnutChartQ2Data" [labels]="doughnutChartLabels"
+                                    [chartType]="doughnutChartType">
+                                </canvas>
+                                <canvas baseChart [data]="barChartQ2Data" [labels]="barChartLabels"
+                                    [chartType]="barChartType">
+                                </canvas>
                                 <mat-card-content>
-                                    <p>
-                                        $20000
-                                    </p>
+
                                 </mat-card-content>
-                                <mat-card-actions>
-                                    <button mat-stroked-button>
-                                        DETAIL
-                                    </button>
-                                </mat-card-actions>
+
                             </mat-card>
                         </div>
-                        <div fxFlex.md="25" fxFlex.lg="25" fxFlex.xl="25" fxFlex.sm="100" fxFlex.xs="100">
+                        <div fxFlex.md="33" fxFlex.lg="33" fxFlex.xl="33" fxFlex.sm="100" fxFlex.xs="100">
                             <mat-card class="example-card">
                                 <mat-card-header>
                                     <!-- <div mat-card-avatar class="header-image"></div> -->
                                     <mat-icon aria-hidden="false" aria-label="Q1" mat-card-avatar>ballot</mat-icon>
                                     <mat-card-title>Q3</mat-card-title>
-                                    <mat-card-subtitle>APR-MAY-JUN</mat-card-subtitle>
+                                    <mat-card-subtitle>{{getMonths("Q3")}}</mat-card-subtitle>
                                 </mat-card-header>
-                                <img mat-card-image src="../../assets/img/chart.png" alt="Chart">
+                                <canvas baseChart [data]="doughnutChartQ3Data" [labels]="doughnutChartLabels"
+                                    [chartType]="doughnutChartType">
+                                </canvas>
+                                <canvas baseChart [data]="barChartQ3Data" [labels]="barChartLabels"
+                                    [chartType]="barChartType">
+                                </canvas>
                                 <mat-card-content>
-                                    <p>
-                                        $20000
-                                    </p>
+
                                 </mat-card-content>
-                                <mat-card-actions>
-                                    <button mat-stroked-button>
-                                        DETAIL
-                                    </button>
-                                </mat-card-actions>
+
                             </mat-card>
                         </div>
-                        <div fxFlex.md="25" fxFlex.lg="25" fxFlex.xl="25" fxFlex.sm="100" fxFlex.xs="100">
+
+                    </div>
+                    <div fxFlex fxLayoutAlign="center start" fxLayoutGap="20px">
+                        <div fxFlex.md="33" fxFlex.lg="33" fxFlex.xl="33" fxFlex.sm="100" fxFlex.xs="100">
                             <mat-card class="example-card">
                                 <mat-card-header>
                                     <!-- <div mat-card-avatar class="header-image"></div> -->
                                     <mat-icon aria-hidden="false" aria-label="Q1" mat-card-avatar>ballot</mat-icon>
                                     <mat-card-title>Q4</mat-card-title>
-                                    <mat-card-subtitle>APR-MAY-JUN</mat-card-subtitle>
+                                    <mat-card-subtitle>{{getMonths("Q4")}}</mat-card-subtitle>
                                 </mat-card-header>
-                                <img mat-card-image src="../../assets/img/chart.png" alt="Chart">
+                                <canvas baseChart [data]="doughnutChartQ4Data" [labels]="doughnutChartLabels"
+                                    [chartType]="doughnutChartType">
+                                </canvas>
+                                <canvas baseChart [data]="barChartQ4Data" [labels]="barChartLabels"
+                                    [chartType]="barChartType">
+                                </canvas>
                                 <mat-card-content>
-                                    <p>
-                                        $20000
-                                    </p>
+
                                 </mat-card-content>
-                                <mat-card-actions>
-                                    <button mat-stroked-button>
-                                        DETAIL
-                                    </button>
-                                </mat-card-actions>
+
                             </mat-card>
                         </div>
-                        <div fxFlex.md="25" fxFlex.lg="25" fxFlex.xl="25" fxFlex.sm="100" fxFlex.xs="100">
+                        <div fxFlex.md="33" fxFlex.lg="33" fxFlex.xl="33" fxFlex.sm="100" fxFlex.xs="100">
                             <mat-card class="example-card">
                                 <mat-card-header>
                                     <!-- <div mat-card-avatar class="header-image"></div> -->
@@ -141,17 +141,16 @@
                                     <mat-card-title>FY Total</mat-card-title>
                                     <mat-card-subtitle>APR-MAY-JUN</mat-card-subtitle>
                                 </mat-card-header>
-                                <img mat-card-image src="../../assets/img/chart.png" alt="Chart">
+                                <canvas baseChart [data]="doughnutChartTData" [labels]="doughnutChartLabels"
+                                    [chartType]="doughnutChartType">
+                                </canvas>
+                                <canvas baseChart [data]="barChartTData" [labels]="barChartLabels"
+                                    [chartType]="barChartType">
+                                </canvas>
                                 <mat-card-content>
-                                    <p>
-                                        $20000
-                                    </p>
+
                                 </mat-card-content>
-                                <mat-card-actions>
-                                    <button mat-stroked-button>
-                                        DETAIL
-                                    </button>
-                                </mat-card-actions>
+
                             </mat-card>
                         </div>
                     </div>

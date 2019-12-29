@@ -11,7 +11,7 @@ import { HeaderComponent } from './shared/layout/header/header.component';
 import { FooterComponent } from './shared/layout/footer/footer.component';
 import { LoaderComponent } from './shared/component/loader/loader.component';
 import { HomeComponent } from './home/home.component';
-import { ChartModule } from 'angular-highcharts';
+import { ChartsModule } from 'ng2-charts';
 
 import {
   MatSelectModule,
@@ -97,7 +97,7 @@ import { AgreementEditComponent } from './agreement-edit/agreement-edit.componen
     //mat mods
     FormsModule, 
     ReactiveFormsModule ,
-    ChartModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
