@@ -37,6 +37,18 @@ export class FinanceYearComponent implements OnInit {
   p4: string;
   p3: string;
 
+
+  ibgTotal = {
+    "ibg": [],
+    "MOD": 0,
+    "PMGT": 0,
+    "FS": 0,
+    "SEC": 0,
+    "p3": 0,
+    "p45": 0,
+    "p5": 0
+  }
+
   public doughnutChartLabels: Label[] = ['FSE', 'MOD', 'PM', 'SEC'];
   public barChartLabels: Label[] = ['P3', 'P4.5', 'P5'];
   public doughnutChartType: ChartType = 'doughnut';
@@ -172,7 +184,7 @@ export class FinanceYearComponent implements OnInit {
 
     // console.log(x)
     // console.log(this.revenueMaster)
-    console.log(this.revenueMaster)
+    // console.log(this.revenueMaster)
 
     for (let key in this.revenueMaster) {
       let ibuArr = this.revenueMaster[key];
@@ -186,7 +198,7 @@ export class FinanceYearComponent implements OnInit {
           for (let keyPname in projA) {
             let partProj = projA[keyPname];
             if (partProj[this.currYear] !== undefined) {
-              console.log((partProj))
+              // console.log((partProj))
               let mdet = this.calculateProjectSum(partProj);
               partProj[this.currYear]["Q"] = mdet
             }
@@ -194,7 +206,7 @@ export class FinanceYearComponent implements OnInit {
         }
       }
     }
-    console.log(this.revenueMaster)
+    // console.log(this.revenueMaster)
 
     let t = this.calculateQuaterRevenue("q1");
     this.doughnutChartQ1Data = [[t.MOD, t.PMGT, t.FS, t.SEC]];
@@ -213,7 +225,7 @@ export class FinanceYearComponent implements OnInit {
     this.barChartQ4Data = [[t3.p3, t3.p45, t3.p5]];
 
     this.getTotal(t, t1, t2, t3);
-
+    this.getIbgSum();
   }
   getTotal(t, t1, t2, t3) {
     this.doughnutChartTData = [
@@ -489,7 +501,7 @@ export class FinanceYearComponent implements OnInit {
 
   createRevenueMaster() {
 
-   
+
 
     this.revenue.ibgrevenueInfo.forEach(ibg => {
       if (this.revenueMaster[ibg.IBG] === undefined) {
@@ -544,20 +556,20 @@ export class FinanceYearComponent implements OnInit {
                 AEOPEBSProjHours: 0,
                 AEOPEBSProjAmount: 0,
               };
-          
+
               let ad = {
                 MOD: arr2,
                 PMGT: arr2,
                 FS: arr2,
                 SEC: arr2,
               }
-          
+
               let fs = {
                 P3: ad,
                 P45: ad,
                 P5: ad
               };
-          
+
               let cms = {
                 Core: fs,
                 MS: fs
@@ -630,6 +642,179 @@ export class FinanceYearComponent implements OnInit {
         break;
     }
     return ret.toUpperCase();
+
+  }
+
+  getIbgSum() {
+
+    // console.log(this.revenueMaster)
+
+
+    // for (let key in this.revenueMaster) {
+    //   let ibuArr = this.revenueMaster[key];
+    //   // console.log(ibuArr)
+    //   for (let keyIbu in ibuArr) {
+    //     let dMArr = ibuArr[keyIbu];
+    //     // console.log(dMArr)
+    //     for (let keyP in dMArr) {
+
+
+
+    for (let key in this.revenueMaster) {
+      // console.log(key)
+      let ibuTotal = {
+        "ibu": [],
+        "MOD": 0,
+        "PMGT": 0,
+        "FS": 0,
+        "SEC": 0,
+        "p3": 0,
+        "p45": 0,
+        "p5": 0
+      }
+
+      let ibuArr = this.revenueMaster[key];
+      // console.log(ibuArr)
+      for (let keyIbu in ibuArr) {
+
+
+
+        let dmTotal = {
+          "dm": [],
+          "MOD": 0,
+          "PMGT": 0,
+          "FS": 0,
+          "SEC": 0,
+          "p3": 0,
+          "p45": 0,
+          "p5": 0
+        }
+
+        let dMArr = ibuArr[keyIbu];
+        // console.log(dMArr)
+        for (let keyP in dMArr) {
+
+
+          let projTotal = {
+            "MOD": 0,
+            "PMGT": 0,
+            "FS": 0,
+            "SEC": 0,
+            "p3": 0,
+            "p45": 0,
+            "p5": 0
+
+          }
+
+
+          let projA = dMArr[keyP];
+          // console.log(projA)
+
+
+          for (let keyPname in projA) {
+
+            let pro = {
+              "proj": [],
+              "MOD": 0,
+              "PMGT": 0,
+              "FS": 0,
+              "SEC": 0,
+              "p3": 0,
+              "p45": 0,
+              "p5": 0
+            }
+
+            let partProj = projA[keyPname];
+            if (partProj[this.currYear] !== undefined) {
+              // console.log((partProj[this.currYear]))
+
+              let m = 0;
+              let p = 0;
+              let f = 0;
+              let s = 0;
+              let p3 = 0;
+              let p45 = 0;
+              let p5 = 0;
+
+              m = partProj[this.currYear]["Q"]["q1"].total.MOD + partProj[this.currYear]["Q"]["q2"].total.MOD + partProj[this.currYear]["Q"]["q3"].total.MOD + partProj[this.currYear]["Q"]["q4"].total.MOD;
+              projTotal.MOD += m;
+
+              p = partProj[this.currYear]["Q"]["q1"].total.PMGT + partProj[this.currYear]["Q"]["q2"].total.PMGT + partProj[this.currYear]["Q"]["q3"].total.PMGT + partProj[this.currYear]["Q"]["q4"].total.PMGT;
+              projTotal.PMGT += p;
+
+              f = partProj[this.currYear]["Q"]["q1"].total.FS + partProj[this.currYear]["Q"]["q2"].total.FS + partProj[this.currYear]["Q"]["q3"].total.FS + partProj[this.currYear]["Q"]["q4"].total.FS;
+              projTotal.FS += f
+
+              s = partProj[this.currYear]["Q"]["q1"].total.SEC + partProj[this.currYear]["Q"]["q2"].total.SEC + partProj[this.currYear]["Q"]["q3"].total.SEC + partProj[this.currYear]["Q"]["q4"].total.SEC;
+              projTotal.SEC += s
+
+              p3 = partProj[this.currYear]["Q"]["q1"].total.p3 + partProj[this.currYear]["Q"]["q2"].total.p3 + partProj[this.currYear]["Q"]["q3"].total.p3 + partProj[this.currYear]["Q"]["q4"].total.p3;
+              projTotal.p3 += p3
+
+              p45 = partProj[this.currYear]["Q"]["q1"].total.p45 + partProj[this.currYear]["Q"]["q2"].total.p45 + partProj[this.currYear]["Q"]["q3"].total.p45 + partProj[this.currYear]["Q"]["q4"].total.p45;
+              projTotal.p45 += p45
+
+              p5 = partProj[this.currYear]["Q"]["q1"].total.p5 + partProj[this.currYear]["Q"]["q2"].total.p5 + partProj[this.currYear]["Q"]["q3"].total.p5 + partProj[this.currYear]["Q"]["q4"].total.p5;
+              projTotal.p5 += p5
+
+
+
+              pro["proj"][keyPname] = {
+                "MOD": m,
+                "PMGT": p,
+                "FS": f,
+                "SEC": s,
+                "p3": p3,
+                "p45": p45,
+                "p5": p5
+              };
+
+              pro.MOD = projTotal.MOD;
+              pro.PMGT = projTotal.PMGT;
+              pro.FS = projTotal.FS;
+              pro.SEC = projTotal.SEC;
+              pro.p3 = projTotal.p3;
+              pro.p45 = projTotal.p45;
+              pro.p5 = projTotal.p5;
+
+
+              dmTotal["dm"][keyP] = pro;
+              // let mdet = this.calculateProjectSum(partProj);
+              // partProj[this.currYear]["Q"] = mdet
+            }
+          }
+
+
+
+          //sum dm here
+          dmTotal.MOD += projTotal.MOD;
+          dmTotal.PMGT += projTotal.PMGT;
+          dmTotal.FS += projTotal.FS;
+          dmTotal.SEC += projTotal.SEC;
+          dmTotal.p3 += projTotal.p3;
+          dmTotal.p45 += projTotal.p45;
+          dmTotal.p5 += projTotal.p5;
+
+
+
+
+        }
+        ibuTotal["ibu"][keyIbu] = dmTotal
+
+        ibuTotal.MOD += dmTotal.MOD;
+        ibuTotal.PMGT += dmTotal.PMGT;
+        ibuTotal.FS += dmTotal.FS;
+        ibuTotal.SEC += dmTotal.SEC;
+        ibuTotal.p3 += dmTotal.p3;
+        ibuTotal.p45 += dmTotal.p45;
+        ibuTotal.p5 += dmTotal.p5;
+
+
+      }
+      this.ibgTotal["ibg"][key] = ibuTotal;
+
+      console.log(this.ibgTotal)
+    }
 
   }
 

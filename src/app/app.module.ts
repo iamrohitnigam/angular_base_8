@@ -39,7 +39,8 @@ import {
   MatProgressBarModule,
   MatSnackBarModule,
   MatPaginatorModule,
-  MatSlideToggleModule
+  MatSlideToggleModule,
+  MatChipsModule
 } from '@angular/material';
 import { FinanceYearComponent } from './finance-year/finance-year.component';
 import { SprocComponent } from './sproc/sproc.component';
@@ -94,6 +95,7 @@ import { AgreementEditComponent } from './agreement-edit/agreement-edit.componen
     MatSnackBarModule,
     MatPaginatorModule,
     MatSlideToggleModule,
+    MatChipsModule,
     //mat mods
     FormsModule, 
     ReactiveFormsModule ,

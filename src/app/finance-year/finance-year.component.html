@@ -168,51 +168,82 @@
                 </div>
 
                 <div fxFlex>
-                    <mat-accordion *ngFor="let ibg of revenueMaster | keyvalue">
+                        <mat-chip-list aria-label="P Profile" fxLayoutAlign="end center" class="margin-below">
+                            <p>Legend &nbsp;</p>
+                                <mat-chip color="primary" selected>{{"P3" }}</mat-chip>
+                                <mat-chip color="accent" selected>{{"P4.5"}}</mat-chip>
+                                <mat-chip color="warn" selected>{{"P5" }}</mat-chip>
+                            </mat-chip-list>
+
+                    <mat-accordion *ngFor="let ibg of ibgTotal.ibg | keyvalue">
                         <mat-expansion-panel>
                             <mat-expansion-panel-header>
                                 <mat-panel-title>
                                     IBG - {{ibg.key}}
                                 </mat-panel-title>
                                 <mat-panel-description fxLayoutAlign="end center">
-                                    P0: 4300
+
+                                    <mat-chip-list aria-label="P Profile">
+                                        <!-- <mat-chip>{{" MOD " + ibg.value.MOD}}</mat-chip>
+                                        <mat-chip>{{" PMGT " + ibg.value.PMGT }}</mat-chip>
+                                        <mat-chip color="primary" selected>{{" FS " + ibg.value.FS}}</mat-chip>
+                                        <mat-chip color="accent" >{{"SEC" + ibg.value.SEC }}</mat-chip> -->
+                                        <mat-chip color="primary" selected>{{ibg.value.p3 }}</mat-chip>
+                                        <mat-chip color="accent" selected>{{ibg.value.p45 }}</mat-chip>
+                                        <mat-chip color="warn" selected>{{ibg.value.p5 }}</mat-chip>
+                                    </mat-chip-list>
+
                                 </mat-panel-description>
                             </mat-expansion-panel-header>
-                            <mat-accordion *ngFor="let ibu of ibg.value | keyvalue">
+                            <mat-accordion *ngFor="let ibu of ibg.value.ibu | keyvalue">
                                 <mat-expansion-panel>
                                     <mat-expansion-panel-header>
                                         <mat-panel-title>
                                             IBU - {{ibu.key}}
                                         </mat-panel-title>
                                         <mat-panel-description fxLayoutAlign="end center">
-                                            P0: 4300
+                                            <mat-chip-list aria-label="P Profile">
+                                                <mat-chip color="primary" selected>{{ibu.value.p3 }}</mat-chip>
+                                                <mat-chip color="accent" selected>{{ibu.value.p45 }}</mat-chip>
+                                                <mat-chip color="warn" selected>{{ibu.value.p5 }}</mat-chip>
+                                            </mat-chip-list>
                                         </mat-panel-description>
                                     </mat-expansion-panel-header>
 
-                                    <mat-accordion *ngFor="let dm of ibu.value | keyvalue">
+                                    <mat-accordion *ngFor="let dm of ibu.value.dm | keyvalue">
                                         <mat-expansion-panel>
                                             <mat-expansion-panel-header>
                                                 <mat-panel-title>
                                                     Delivery Manager - {{dm.key}}
                                                 </mat-panel-title>
                                                 <mat-panel-description fxLayoutAlign="end center">
-                                                    P0: 4300
+                                                    <mat-chip-list aria-label="P Profile">
+                                                        <mat-chip color="primary" selected>{{dm.value.p3 }}
+                                                        </mat-chip>
+                                                        <mat-chip color="accent" selected>{{dm.value.p45 }}
+                                                        </mat-chip>
+                                                        <mat-chip color="warn" selected>{{dm.value.p5 }}
+                                                        </mat-chip>
+                                                    </mat-chip-list>
                                                 </mat-panel-description>
                                             </mat-expansion-panel-header>
-
-                                            <mat-accordion *ngFor="let proj of dm.value | keyvalue">
+                                            <mat-accordion *ngFor="let proj of dm.value.proj | keyvalue">
                                                 <mat-expansion-panel>
                                                     <mat-expansion-panel-header>
                                                         <mat-panel-title>
                                                             Project - {{proj.key}}
                                                         </mat-panel-title>
                                                         <mat-panel-description fxLayoutAlign="end center">
-                                                            P0: 4300
+                                                            <mat-chip-list aria-label="P Profile">
+                                                                <mat-chip color="primary" selected>
+                                                                    {{proj.value.p3 }}</mat-chip>
+                                                                <mat-chip color="accent" selected>
+                                                                    {{proj.value.p45 }}</mat-chip>
+                                                                <mat-chip color="warn" selected>
+                                                                    {{proj.value.p5 }}</mat-chip>
+                                                            </mat-chip-list>
                                                         </mat-panel-description>
                                                     </mat-expansion-panel-header>
-
-
-
                                                 </mat-expansion-panel>
                                             </mat-accordion>
 
@@ -220,14 +251,9 @@
                                     </mat-accordion>
                                 </mat-expansion-panel>
                             </mat-accordion>
-
-
                         </mat-expansion-panel>
-
                     </mat-accordion>
-
                 </div>
-
             </div>
         </div>
         <div fxFlex="100" class="padding-above">
