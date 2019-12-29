@@ -1,0 +1,189 @@
+<app-header></app-header>
+<div class="top_content" fxFill>
+
+    <div fxLayout="column" fxLayout.sm="column" fxLayout.xs="column" fxFlex="90" fxFlex.md="99" fxFlex.xs="99"
+        fxFlex.sm="99" fxFlexOffset="5" fxFlexOffset.md="1" fxFlexOffset.xs="1" fxFlexOffset.sm="1">
+        <div fxFlex>
+            <div fxLayout="column" fxLayoutGap="20px" class="add-subscription-subscriber-details">
+
+        <div fxLayoutAlign="center start" class=" white padded-above">
+          <div class="heading">Sproc Data</div>
+        </div>
+        <form fxLayout="column">
+          <div class="input-row" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
+            <div fxFlex>
+              <mat-form-field appearance="outline" fxFlex>
+                <mat-label>ATT UID</mat-label>
+                <input matInput placeholder="ATT UID">
+              </mat-form-field>
+            </div>
+            <div fxFlex>
+              <!-- <mat-form-field appearance="outline" fxFlex>
+                <mat-label>Name</mat-label>
+                <mat-select>
+                  <mat-option *ngFor="let option of options" [value]="option">
+                    {{option}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field> -->
+              <mat-form-field appearance="outline" fxFlex>
+                  <mat-label>Name</mat-label>
+                  <input matInput placeholder="Name">
+                </mat-form-field>
+            </div>
+            <div fxFlex>
+
+                <mat-form-field appearance="outline" fxFlex>
+                    <mat-label>Application</mat-label>
+                    <input matInput placeholder="application">
+                  </mat-form-field>
+            </div>
+          </div>
+          <div class="input-row" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
+            <mat-form-field appearance="outline" fxFlex>
+              <mat-label>ProjectID</mat-label>
+              <input matInput placeholder="Project ID">
+            </mat-form-field>
+            <div fxFlex fxLayout="row" fxLayoutGap="10px">
+              <mat-form-field appearance="outline" fxFlex>
+                <mat-label>Location</mat-label>
+                <mat-select>
+                  <mat-option *ngFor="let option of loc" [value]="option">
+                    {{option}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              
+            </div>
+            <mat-form-field appearance="outline" fxFlex>
+                <mat-label>City</mat-label>
+                <input matInput placeholder="City">
+              </mat-form-field>
+          </div>
+          <mat-divider></mat-divider>
+          <mat-accordion multi="true" displayMode="flat">
+            <mat-expansion-panel  class="mat-elevation-z0">
+              <mat-expansion-panel-header [collapsedHeight]="'75px'" [expandedHeight]="'75px'">
+                <mat-panel-title>
+                  <div class="sub-heading">Additional Details</div>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <div class="input-row" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
+                <div fxFlex>
+                    <mat-form-field appearance="outline" fxFlex>
+                        <mat-label>Program</mat-label>
+                        <mat-select>
+                          <mat-option *ngFor="let option of prog" [value]="option">
+                            {{option}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+                <div fxFlex>
+                  <mat-form-field appearance="outline" fxFlex>
+                    <mat-label>Owner</mat-label>
+                    <input matInput placeholder="Owner">
+                  </mat-form-field>
+                </div>
+                <div fxFlex>
+                    <mat-form-field appearance="outline" fxFlex>
+                        <mat-label>Assignment</mat-label>
+                        <mat-select>
+                          <mat-option *ngFor="let option of ass" [value]="option">
+                            {{option}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+              </div>
+              <div class="input-row" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
+                <div fxFlex>
+                    <mat-form-field appearance="outline" fxFlex>
+                        <mat-label>Rate</mat-label>
+                        <input matInput placeholder="Rate">
+                      </mat-form-field>
+                </div>
+                <div fxFlex>
+                  
+                </div>
+                <div fxFlex>
+                  
+                </div>
+              </div>
+              <div class="input-row" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
+                <div fxFlex>
+                    <mat-form-field appearance="outline" fxFlex>
+                        <input matInput [matDatepicker]="picker" placeholder=" Start Date">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div fxFlex>
+                    <mat-form-field appearance="outline" fxFlex>
+                        <input matInput [matDatepicker]="picker1" placeholder="Proposed End Date">
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-datepicker #picker1></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div fxFlex>
+                    <mat-form-field appearance="outline" fxFlex>
+                        <input matInput [matDatepicker]="picker12" placeholder="Actual End Date">
+                        <mat-datepicker-toggle matSuffix [for]="picker12"></mat-datepicker-toggle>
+                        <mat-datepicker #picker12></mat-datepicker>
+                    </mat-form-field>
+                </div>
+              </div>
+              
+              <mat-divider></mat-divider>
+            </mat-expansion-panel>
+            <mat-expansion-panel  class="mat-elevation-z0">
+              <mat-expansion-panel-header [collapsedHeight]="'75px'" [expandedHeight]="'75px'">
+                <mat-panel-title>
+                  <div class="sub-heading" fxFlex>Status</div>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              
+              <div class="input-row" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
+                <div fxFlex>
+                    <mat-form-field appearance="outline" fxFlex>
+                        <mat-label>Assignment</mat-label>
+                        <mat-select>
+                          <mat-option *ngFor="let option of stat" [value]="option">
+                            {{option}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+                <div fxFlex>
+                  <mat-form-field appearance="outline" fxFlex>
+                    <mat-label>End Reason</mat-label>
+                    <input matInput placeholder="End reason">
+                  </mat-form-field>
+                </div>
+                <div fxFlex>
+                  
+                </div>
+              </div>
+              <div class="input-row" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
+                <div fxFlex>
+                    <mat-form-field appearance="outline" fxFlex>
+                    <textarea matInput placeholder="Remark"></textarea>
+                    </mat-form-field>
+                </div>
+               
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </form>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          
+          <div fxFlex fxLayoutAlign="end center" fxLayoutGap="20px">
+            <button mat-raised-button >Save</button>
+            <button mat-raised-button color="primary" >Cancel</button>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      

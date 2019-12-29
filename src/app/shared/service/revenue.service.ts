@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Program } from "./../../shared/interface/finance-data";
 
-const localUrl = 'assets/data.json';
+const localUrl = 'assets/data/data.json';
 
 @Injectable({
   providedIn: 'root'

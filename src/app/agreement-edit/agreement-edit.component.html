@@ -1,0 +1,54 @@
+<app-header></app-header>
+<div class="top_content" fxFill>
+    <div fxLayout="column" fxLayout.sm="column" fxLayout.xs="column" fxFlex="90" fxFlex.md="99" fxFlex.xs="99"
+        fxFlex.sm="99" fxFlexOffset="5" fxFlexOffset.md="1" fxFlexOffset.xs="1" fxFlexOffset.sm="1">
+        <div fxFlex>
+            <div fxLayout="column" fxLayoutGap="20px" class="add-subscription-subscriber-details">
+                <div fxLayoutAlign="center start" class=" white padded-above">
+                    <div class="heading">Agreement Data</div>
+                </div>
+                <form fxLayout="column">
+                    <div class="input-row" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px"
+                        fxLayoutGap.lt-md="0px">
+                        <div fxFlex>
+                            <mat-form-field appearance="outline" fxFlex>
+                                <mat-label>Agreement Number</mat-label>
+                                <input matInput placeholder="Place agreement number here">
+                            </mat-form-field>
+                        </div>
+                        <div fxFlex>
+                            <mat-form-field appearance="outline" fxFlex>
+                                <mat-label>Vendor ID</mat-label>
+                                <input matInput placeholder="Vendor ID">
+                            </mat-form-field>
+                        </div>
+                        <div fxFlex></div>
+                    </div>
+                    <div class="input-row" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px"
+                        fxLayoutGap.lt-md="0px">
+                        <mat-form-field appearance="outline" fxFlex>
+                            <input matInput [matDatepicker]="picker1" placeholder="Agreement Start Date">
+                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                            <mat-datepicker #picker1></mat-datepicker>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" fxFlex>
+                            <input matInput [matDatepicker]="picker" placeholder="Agreement End Date">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                        <div fxFlex></div>
+                    </div>
+                    <mat-divider></mat-divider>
+                </form>
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <div fxFlex>
+
+                    </div>
+                    <div fxFlex fxLayoutAlign="end center" fxLayoutGap="20px">
+                        <button mat-raised-button>Save</button>
+                        <button mat-raised-button color="primary" routerLink="/agreement">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

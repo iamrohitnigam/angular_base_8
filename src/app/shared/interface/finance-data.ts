@@ -6,10 +6,10 @@ export interface IBG {
     iburevenueInfo: [IBU];
     IBG: string;
 }
+
 export interface IBU {
     IBU: string;
     DeliveryManager: [DeliveryManager]
-
 }
 export interface DeliveryManager {
     DeliveryManager: string;
@@ -33,8 +33,36 @@ export interface Projects {
     AEOPEBSProjAmount: number;
     CY: string;
     FyQuarter: string;
-    CyQuarter: string
+    CyQuarter: string;
+    year: [Month]
 }
+
+export interface Month {
+    monthName: string;
+    coreMS: [Core]
+}
+
+export interface Core {
+    name: string;
+    pProfile: [PProfile]
+}
+
+export interface PProfile {
+    name: string;
+    activityProfile: [ActivityProfile]
+}
+export interface ActivityProfile {
+    name: string;
+    hoursAmount: HoursAmount
+}
+
+export interface HoursAmount {
+    BETEBSProjHours: number
+    BETEBSProjAmount: number
+    AEOPEBSProjHours: number
+    AEOPEBSProjAmount: number
+}
+
 export enum FundingStatus {
     p5 = "P4.5+",
     p45 = "P3+",

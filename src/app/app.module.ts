@@ -38,10 +38,14 @@ import {
   MatListModule,
   MatProgressBarModule,
   MatSnackBarModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+  MatSlideToggleModule
 } from '@angular/material';
 import { FinanceYearComponent } from './finance-year/finance-year.component';
 import { SprocComponent } from './sproc/sproc.component';
+import { SprocEditComponent } from './sproc-edit/sproc-edit.component';
+import { AgreementComponent } from './agreement/agreement.component';
+import { AgreementEditComponent } from './agreement-edit/agreement-edit.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +55,10 @@ import { SprocComponent } from './sproc/sproc.component';
     LoaderComponent,
     HomeComponent,
     FinanceYearComponent,
-    SprocComponent
+    SprocComponent,
+    SprocEditComponent,
+    AgreementComponent,
+    AgreementEditComponent
   ],
   imports: [
     BrowserModule,
@@ -86,6 +93,7 @@ import { SprocComponent } from './sproc/sproc.component';
     MatProgressBarModule,
     MatSnackBarModule,
     MatPaginatorModule,
+    MatSlideToggleModule,
     //mat mods
     FormsModule, 
     ReactiveFormsModule ,
