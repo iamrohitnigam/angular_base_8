@@ -1,0 +1,32 @@
+{
+    "agreement": [
+        {
+            "vendorId": 123,
+            "vendorName": "vName",
+            "from": "2019-11-12",
+            "to": "2020-11-12",
+            "number": "87D"
+        },
+        {
+            "vendorId": 43,
+            "vendorName": "vName",
+            "from": "2019-10-12",
+            "to": "2020-11-12",
+            "number": "84D"
+        },
+        {
+            "vendorId": 222,
+            "vendorName": "vName",
+            "from": "2019-11-12",
+            "to": "2020-11-12",
+            "number": "HY6"
+        },
+        {
+            "vendorId": 987,
+            "vendorName": "vName",
+            "from": "2019-11-12",
+            "to": "2020-11-12",
+            "number": "NB5"
+        }
+    ]
+}
